@@ -1,2 +1,15 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+A INCLURE DANS LES VIEWS :
+<% @garden.each do |garden| %>
+  <% if policy(garden).edit? %>
+    <%= link_to "Update", garden(garden) %>
+  <% end %>
+<% end %>
+
+ET AUSSI :
+<% if policy(Garden).create? %>
+  <%= link_to "New garden", new_garden_path %>
+<% end %>
